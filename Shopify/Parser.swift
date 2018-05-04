@@ -23,5 +23,6 @@ class Parser{
             }
             
         }
+        Data.sort()
     }
 }

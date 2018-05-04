@@ -8,9 +8,23 @@
 
 import UIKit
 
-class OrderSummaryScreen: UIViewController {
+class OrderSummaryScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Data.provincesArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
+        cell.textLabel?.text = Data.provincesArray[indexPath.row]
+        return cell
+    }
     
     @IBOutlet weak var provinceTableView: UITableView!
+    
+    @IBAction func refreshButton(_ sender: Any) {
+        self.provinceTableView.reloadData()
+    }
     
     @IBOutlet weak var yearTableView: UITableView!
     
