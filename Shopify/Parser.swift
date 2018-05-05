@@ -25,4 +25,17 @@ class Parser{
         }
         Data.sort()
     }
+    
+    func parseYears(with data: NSDictionary){
+        let orders = data["orders"] as! [[String:Any]]
+        for i in 0...49{
+            let firstOrder = [orders[i]]
+            
+            let firstRealOrder = firstOrder[0]
+            let processDate:String = firstRealOrder["processed_at"]! as! String
+            if processDate.contains("2017"){
+                Data.years+=1
+            }
+        }
+    }
 }

@@ -20,6 +20,7 @@ class API{
                     let JSON = result as! NSDictionary
                     let parser = Parser()
                     parser.parseProvinces(with: JSON)
+                    parser.parseYears(with: JSON)
                 }
                 break
             case .failure(_):

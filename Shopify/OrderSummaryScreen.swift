@@ -11,18 +11,22 @@ import UIKit
 class OrderSummaryScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Data.provincesArray.count
+        return Data.combinationDictionary.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "cell")
-        cell.textLabel?.text = Data.provincesArray[indexPath.row]
+        let cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: "cell")
+        cell.textLabel?.text = "\(Data.keyDict[indexPath.row])"
+        cell.detailTextLabel?.text = "\(Data.valueDict[indexPath.row]) orders"
         return cell
     }
+    
+    @IBOutlet weak var orderYearLabel: UILabel!
     
     @IBOutlet weak var provinceTableView: UITableView!
     
     @IBAction func refreshButton(_ sender: Any) {
+        self.orderYearLabel.text = "Orders By Year: 2017 has \(Data.years) orders"
         self.provinceTableView.reloadData()
     }
     
