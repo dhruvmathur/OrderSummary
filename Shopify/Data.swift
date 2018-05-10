@@ -11,6 +11,11 @@ import Foundation
 class Data{
     static var provincesArray: [String] = []
     static var years: Int = 0
+    
+    static var orderNumArray: [Int: Any] = [:]
+    static var orderNumbers: [Int] = []
+    static var prices: [Any] = []
+    
     static var combinationDictionary: [String:Int] = [:]
     static var keyDict: [String] = []
     static var valueDict: [Int] = []
@@ -30,6 +35,11 @@ class Data{
         print(combinationDictionary)
         keyDict = Array(combinationDictionary.keys)
         valueDict = Array(combinationDictionary.values)
+    }
+    
+    static func sortOrderNumPrice(){
+        orderNumbers = Array(orderNumArray.keys)
+        prices = Array(orderNumArray.values)
     }
     
 }

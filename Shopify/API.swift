@@ -21,6 +21,7 @@ class API{
                     let parser = Parser()
                     parser.parseProvinces(with: JSON)
                     parser.parseYears(with: JSON)
+                    parser.parseOrderNumPrice(with: JSON)
                 }
                 break
             case .failure(_):
